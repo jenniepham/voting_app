@@ -8,8 +8,8 @@ var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
 
    passport.use(new TwitterStrategy({
-        consumerKey: process.env.TWITTER_CONSUMER_KEY,
-        consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+        consumerKey: "RVS3hZmZQT7blC3vN8t3CV5h6",
+        consumerSecret: "r1dX6p5ARAlw9dkRd0KFdYg2AH6XCaA7nnduSlABZfBCvwivyB",
         callbackURL: "https://pickmevote.herokuapp.com/auth/twitter/callback"
       },
       function(token, tokenSecret, profile, cb) {
