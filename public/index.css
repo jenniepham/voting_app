@@ -1,0 +1,130 @@
+.header {
+  height: 60px;
+  width: 100%;
+  background-color: #555555;
+}
+
+.header-buttons{
+  margin: 0px auto;
+  width: 70%;
+  height: 100%;
+  transform: translateY(5px);
+
+}
+
+.header-buttons>a{
+  float:left;
+}
+
+.logo{
+  float:left;
+  margin-right: 30px;
+}
+
+.wordbuttons>a{
+  color: #FFF;
+  font-family: Oswald;
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+.wordbuttons{
+  transform: translateY(10px);
+}
+
+.wordbuttons>p{
+  float:right;
+  color: #FFF;
+  font-family: Oswald;
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+.appBody{
+  margin: 0px auto;
+  transform: translateY(80px);
+  width: 70%;
+  height: auto;
+  color: #555555;
+  font-family: Lato;
+  font-size: 18px;
+}
+
+#logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.yourPolls{
+float: left;
+width: 50%;
+
+
+}
+
+.pollForm{
+  float:left;
+  width: 50%;
+  border-left: 2px solid #555;
+}
+
+input{
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 80%;
+}
+
+.loginForm{
+  float:left;
+  width: 50%;
+}
+
+.loginInput{
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 30%;
+}
+
+.loginSubmit{
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 30%;
+  background-color: #56b9ea;
+  color: #FFF;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+
+#addOption{
+margin-left: 10px;
+width: 100px;
+background-color: #51db54;
+color: #FFF;
+outline: none;
+border-radius: 10px;
+border: none;
+}
+
+#removeOption{
+
+  margin-left: 10px;
+  width: 100px;
+  background-color: #e95376;
+  color: #FFF;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+
+}
+
+#submit{
+  margin-left: 10px;
+  width: 150px;
+  background-color: #56b9ea;
+  color: #FFF;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
