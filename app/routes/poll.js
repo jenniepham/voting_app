@@ -5,7 +5,8 @@ var ObjectId = require('mongodb').ObjectId
 module.exports = function(app){
 
 var addPoll = require("../models/newPoll.js");    
-var addVote = require("../models/newVote.js");  
+var addVote = require("../models/newVote.js"); 
+var removePoll = require("../models/removePoll.js");  
     
     app.post('/home/form', function(request, response){
    
@@ -126,9 +127,67 @@ var url = process.env.MONGO_URL;
        
    });
    
+    app.get('/delete/:id', isLoggedIn, function(request,response){
+       
+     var id = request.params.id;
+      var idd = request.params.id;
+      id = new ObjectId(id);
+      var user = request.user.local.username;
+      
+      var findDocuments = function(db, callback) {
+       var collection = db.collection('polls');
+       collection.find({_id:id}).toArray(function(err, docs) {
+       assert.equal(err, null);
+       console.log("Found the following records");
+       console.log(docs);
+       callback(docs);
+       
+       if (user = docs[0]['user']){
+           removePoll(idd);
+           response.redirect('/home');
+       }
+       
+       else {
+           
+           response.redirect('/home');
+       }
+      
+       
+       });        
+      };
+
+      var url = process.env.MONGO_URL;
+  
+  
+     MongoClient.connect(url, function(err, db) {
+      assert.equal(null, err);
+      console.log("Connected successfully to get server");
+
+      findDocuments(db, function() {
+      db.close();
+  
+      });
+     });
+   
+
+   
+    
+
+       
+   });
        
 
 
 
     
 };
+
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}

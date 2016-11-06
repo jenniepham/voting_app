@@ -39,7 +39,7 @@
    <p class="pollTitle">Your Polls</p>
    <div id="addUserPollsHere"> <ul>
 <% for(var i=0; i<data.length; i++) {%>
-   <li><a class="userPollItems" href="/<%=data[i]._id%>"><%= data[i]["question"] %></a><a class="userPollDelete" href="/delete/<%=data[i]._id%>">--Delete--</a></li>
+   <li><a class="userPollItems" href="/<%=data[i]._id%>"><%= data[i]["question"] %></a><a onclick='return confirm("Are you sure?")' class="userPollDelete" href="/delete/<%=data[i]._id%>">--Delete--</a></li>
 <% } %>
 </ul>
    </div>
