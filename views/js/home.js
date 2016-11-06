@@ -16,8 +16,12 @@ noInput--;
 });
 
 $("#submit").on("click", function(){
+    alert("Your poll has been submitted! Redirecting you back to your dashboard...");
 $("#pollForm").submit();
 
+
 });
+
+
 
 });

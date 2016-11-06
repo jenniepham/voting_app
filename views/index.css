@@ -70,7 +70,8 @@ width: 50%;
 }
 
 input{
-  margin-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
   margin-left: 10px;
   width: 80%;
 }
@@ -81,9 +82,9 @@ input{
 }
 
 .loginInput{
-  margin-top: 5px;
-  margin-left: 10px;
-  width: 30%;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  width: 50%;
 }
 
 .loginSubmit{
@@ -127,4 +128,100 @@ border: none;
   outline: none;
   border-radius: 10px;
   border: none;
+}
+
+.signupTitle{
+  font-size: 36px;
+  font-family: Oswald;
+  color: #e95376;
+  width: 50%;
+  text-align: left;
+  
+}
+
+.loginTitle{
+  font-size: 36px;
+  font-family: Oswald;
+  width: 50%;
+  text-align: left;
+  color: #51db54;
+  
+  
+}
+
+.subtext{
+  font-size: 12px;
+  padding-bottom: 0px;
+  width: 50%;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.username{
+  float:right;
+}
+
+.pollTitle{
+  font-size: 36px;
+  font-family: Oswald;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.formsubtext{
+  font-size: 14px;
+  padding-bottom: 0px;
+  width: 50%;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+
+#addUserPollsHere{
+  width: 100%;
+}
+
+.userPollItems{
+  color: #56b9ea;
+  outline: none;
+}
+
+.pollChoices{
+  float:left;
+  width: 30%;
+}
+
+.pollDisplay{
+  float:right;
+  width: 70%;
+}
+
+select{
+  margin-left: 10px;
+  width: 50%;
+}
+
+.optionSubtext{
+  margin-left: 10px;
+  font-family: Lato;
+  
+}
+
+.removePoll{
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 30%;
+  background-color: #e95376;
+  color: #FFF;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+
+.userPollDelete{
+  font-size:11px;
+  color: #e95376;
+  outline: none;
+  margin-left: 5px;
 }

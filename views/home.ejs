@@ -1,0 +1,69 @@
+<html ng-app="vote">
+<head>
+  <title>Pick Me!</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+
+
+<div class="header">
+  <div class="header-buttons">
+    <div class='logo'>
+     <a href="/"><img src="images/logo-small.png"></a>
+    </div>
+    <div class="wordbuttons">
+     <% if (user) { %>
+     <a href="/home">dashboard</a>
+     <% } %>
+     <a href="/popular">popular</a>
+     <% if (!user) { %>
+        <a href="/login">log-in</a>
+     <% } %>
+     <% if (user) { %>
+        <a href="/logout">log-out</a>
+        <p id="username">Hi, <%= user.local.username %></p>
+     <% } %>
+     
+    </div>
+
+ </div>
+</div>
+
+<div class="appBody">
+ <div class="yourPolls">
+   <p class="pollTitle">Your Polls</p>
+   <div id="addUserPollsHere"> <ul>
+<% for(var i=0; i<data.length; i++) {%>
+   <li><a class="userPollItems" href="/<%=data[i]._id%>"><%= data[i]["question"] %></a><a class="userPollDelete" href="/delete/<%=data[i]._id%>">--Delete--</a></li>
+<% } %>
+</ul>
+   </div>
+ </div>
+ <div class="pollForm">
+     <p class="pollTitle">New Poll</p>
+   <form method="post" action="/home/form" id="pollForm">
+     <p class="formsubtext"><b>Question</b></p>
+     <input type="text" name="question"</input><br>
+     <p class="formsubtext"><b>Options</b></p>
+     <input type="text" name="option1"></input><br>
+   </form>
+   <button id="addOption"><center>+ option</center></button>
+   <button id="removeOption"><center>x option</center></button>
+   <button id="submit"><center>create poll</center></button>
+     
+   
+   
+
+ </div>
+
+</div>
+
+
+
+</body>
+</html>

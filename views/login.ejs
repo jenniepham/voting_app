@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <title>Pick Me!</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<div class="header">
+  <div class="header-buttons">
+    <div class='logo'>
+     <a href="/"><img src="images/logo-small.png"></a>
+    </div>
+    <div class="wordbuttons">
+     <% if (user) { %>
+     <a href="/home">dashboard</a>
+     <% } %>
+     <a href="/polls">polls</a>
+     <% if (!user) { %>
+        <a href="/login">log-in</a>
+     <% } %>
+     <% if (user) { %>
+        <a href="/logout">log-out</a>
+        <p class="username">Hi, <%= user.local.username %></p>
+     <% } %>
+    </div>
+
+ </div>
+</div>
+<% if (LImessage.length > 0) { %>
+        <div class="alert alert-danger"><%= LImessage %></div>
+    <% } %>
+<% if (SUmessage.length > 0) { %>
+        <div class="alert alert-danger"><%= SUmessage %></div>
+    <% } %>
+<div class="appBody">
+    
+ <div class="loginForm"><center>
+   <p class="signupTitle">sign up <i class="fa fa-level-up" aria-hidden="true"></i> </p>
+   <form method="post" action="/signup" id="newUserForm">
+     <p class="subtext"><b>Username</b></p>
+     <input class="loginInput" type="text" name="username"></input><br>
+     <p class="subtext"><b>Password</b></p>
+     <input class="loginInput" type="password" name="password"></input><br>
+     <input class="loginSubmit" type="submit" value="sign up"></input>
+   </form></center>
+ </div>
+ <div class="loginForm"><center>
+   <p class="loginTitle">log in <i class="fa fa-sign-in" aria-hidden="true"></i></p>
+   <form method="post" action="" id="loginForm">
+     <p class="subtext"><b>Username</b></p>
+     <input class="loginInput" type="text" name="username"></input><br>
+     <p class="subtext"><b>Password</b></p>
+     <input class="loginInput" type="password" name="password"></input><br>
+     <input class="loginSubmit" type="submit" value="submit"></input>
+   </form></center>
+
+
+ </div>
+
+</div>
+
+
+
+</body>
+</html>
