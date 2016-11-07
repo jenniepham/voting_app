@@ -193,7 +193,7 @@ border: none;
 }
 
 .pollDisplay{
-  float:right;
+  float:left;
   width: 70%;
 }
 
@@ -224,4 +224,96 @@ select{
   color: #e95376;
   outline: none;
   margin-left: 5px;
+}
+
+#ownChoice{
+width: 30%;
+margin-left: 10px;
+background-color: #51db54;
+color: #FFF;
+outline: none;
+border-radius: 10px;
+border: none;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+#otherInput{
+  width: 50%;
+}
+
+@media screen and (max-width: 1500px) {
+
+ .appbody{
+   width: 95%;
+ }
+ .header-buttons{
+   width: 95%;
+ }
+ 
+ .loginForm{
+  float:left;
+  width: 70%;
+  
+  
+}
+
+.signupTitle{
+  font-size: 30px;
+
+}
+
+
+.loginTitle{
+  font-size: 30px;
+
+}
+}
+
+@media screen and (max-width: 1000px) {
+
+ .appbody{
+   width: 95%;
+ }
+ .header-buttons{
+   width: 95%;
+ }
+ 
+ .loginForm{
+  float:none;
+  width: 100%;
+  
+  
+}
+
+.signupTitle{
+  font-size: 30px;
+
+}
+
+
+.loginTitle{
+  font-size: 30px;
+
+}
+
+.pollChoices{
+  float:none;
+  width: 100%;
+}
+
+.pollDisplay{
+  float:none;
+  width: 100%;
+}
+}
+
+@media screen and (max-width: 500px) {
+
+ .header {
+  height: 90px;
+  width: 100%;
+  background-color: #555555;
+}
+}
 }

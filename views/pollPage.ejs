@@ -3,7 +3,7 @@
 <head>
     <title>Pick Me!</title>
   <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css" media="screen">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
@@ -32,8 +32,10 @@
            rows.push([optionArr[i],voteArr[i]]);
        }
         
-      
+    
 $(document).ready(function(){
+    
+   
    
     var currentUrl = window.location.href;
     var ques = "<%=data[0]["question"]%>";
@@ -41,11 +43,18 @@ $(document).ready(function(){
     
     $("#tweetIt").attr('href', url); 
     
+    
+    $("#ownChoice").on('click',function(){
+        
+     $("#otherInput").attr('style', "display:block");
+         
+     });
+  
+    
 });
    
 
      
-  
        
      
         
@@ -119,25 +128,32 @@ $(document).ready(function(){
         <p class="signupTitle"><%=data[0]["question"]%></p><br><br>
         <form method="post" action="" id="polloptions">
             <p class="optionSubtext"><b>Choices</b></p>
-            <select name="choice">
+            <select id ="choice" name="choice">
                 <% for(var i=0; i<data[0]["options"].length; i++) {%>
-                 <li><option id="yoyo" value="<%=data[0]["options"][i]%>"><%=data[0]["options"][i]%></option>
+                <option id="yoyo" value="<%=data[0]["options"][i]%>"><%=data[0]["options"][i]%></option>
                 <% } %>
             </select><br><br><br><br>
-            <input class="loginSubmit" type="submit" value="submit">
+            <input style="display:none" placeholder='enter a new option' type='text' name='otherOption' id="otherInput"><br><br></input>
+            
+            <input class="loginSubmit" type="submit" value="submit" onclick='return confirm("Your vote has been recorded!")'>
         </form>
+        <% if (user) { %>
+            <button id="ownChoice">own choice</button><br>
+            <% } %>
         <a href="" id="tweetIt"><button class=loginSubmit><i class="fa fa-twitter" aria-hidden="true"></i></button></a>
       
      
     </div>
     <div class="pollDisplay">
         <div id="chart_div"></div>
+        <p><%=data[0]['count']%> votes collected</p>
+        <p>poll created by: <%=data[0]['user']%></p>
         <p style="font-size:12px">*polls with no votes will not appear</p>
     </div>
 </div>    
 
 
-</div>
+
 
 
 </body>

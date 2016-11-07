@@ -6,6 +6,7 @@ module.exports = function(app){
 
 var addPoll = require("../models/newPoll.js");    
 var addVote = require("../models/newVote.js"); 
+var addOption = require("../models/newOption.js"); 
 var removePoll = require("../models/removePoll.js");  
     
     app.post('/home/form', function(request, response){
@@ -84,6 +85,8 @@ var url = process.env.MONGO_URL;
       var idd = id;
       id = new ObjectId(id);
       var choice = request.body.choice;
+      var newOption = request.body.otherOption;
+      
       
       var findDocuments = function(db, callback) {
        var collection = db.collection('polls');
@@ -92,19 +95,29 @@ var url = process.env.MONGO_URL;
        console.log("Found the following records");
        console.log(docs);
        callback(docs);
-       
        var option = docs[0]['options'];
+       var newOptionArr = docs[0]['options'];
        var vote = docs[0]['vote'];
+       var newVoteArr = docs[0]['vote'];
        
+       
+       
+       if(newOption && newOption.length >= 1){
+       newOptionArr.push(newOption);
+       newVoteArr.push(1);
+       console.log({'old array': option});
+       console.log({'new array': newOptionArr});
+       addOption(idd,newVoteArr,newOptionArr);
+       response.redirect('/'+idd);
+       }
+       
+       else{
        var selectedOption = option.indexOf(choice);
-       
        vote[selectedOption] ++;
-       
        console.log(vote);
-       
        addVote(idd,vote);
        response.redirect("/"+idd);
-      
+       }
        
        });        
       };
