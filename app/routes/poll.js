@@ -19,9 +19,11 @@ var removePoll = require("../models/removePoll.js");
    var size = Object.keys(form).length;
    
    for (var i = 1; i<size; i++){
-       
-      options.push(form["option"+i]);
-      vote.push(0);
+      if (form["option"+i] != ""){
+        options.push(form["option"+i]);
+        vote.push(0);  
+      } 
+      
    }
    
    console.log("user:" + user);
